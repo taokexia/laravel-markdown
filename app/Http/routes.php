@@ -17,3 +17,5 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('articles', 'ArticlesController');
+
+Route::post('markdown', 'ArticlesController@markdown')->name('markdown');

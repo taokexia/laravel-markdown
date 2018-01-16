@@ -11,7 +11,7 @@
     </div>
     <div class="z-panel-body" style="padding:20px;">
         <div class="markdown">
-            {{ $article->content }}
+            {!! $article->content !!}
         </div>
     </div>
 </div>

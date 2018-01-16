@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Article;
+use Markdown;
+
 class ArticlesController extends Controller
 {
     //
@@ -33,6 +35,12 @@ class ArticlesController extends Controller
 
     public function show($id){
     	$article = Article::findOrFail($id);
+
+        $article->content = Markdown::convertToHtml($article->content);
     	return view('articles.show',compact('article'));
+    }
+
+    public function markdown(Request $request){
+        return Markdown::convertToHtml($request->content);
     }
 }
